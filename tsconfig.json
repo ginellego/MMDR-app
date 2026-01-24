@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "jsx": "react-jsx",
-    "strict": true,
     "baseUrl": ".",
     "paths": {
       "@/*": [
         "./*"
       ]
-    },
-    "skipLibCheck": true,
-    "esModuleInterop": true
+    }
   },
-  "exclude": ["node_modules"],
-  "extends": "expo/tsconfig.base"
+  "extends": "expo/tsconfig.base",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
 }

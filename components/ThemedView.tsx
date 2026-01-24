@@ -1,14 +1,14 @@
-// components/ThemedView.tsx
-import React from 'react';
-import { View, ViewProps, useColorScheme } from 'react-native';
+import { View, type ViewProps } from 'react-native';
 
-export const ThemedView: React.FC<ViewProps> = ({ style, children, ...props }) => {
-  const colorScheme = useColorScheme();
-  const backgroundColor = colorScheme === 'dark' ? '#111' : '#fff';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
-  return (
-    <View style={[{ backgroundColor }, style]} {...props}>
-      {children}
-    </View>
-  );
+export type ThemedViewProps = ViewProps & {
+  lightColor?: string;
+  darkColor?: string;
 };
+
+export function ThemedView({ style, lightColor, darkColor, ...otherProps }: ThemedViewProps) {
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+
+  return <View style={[{ backgroundColor }, style]} {...otherProps} />;
+}
