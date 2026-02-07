@@ -27,7 +27,7 @@ npm install -g expo
 expo --version
 
 Run Expo 
-inpx expo start (-c --> clear cache)
+npx expo start (-c --> clear cache)
 
 
 

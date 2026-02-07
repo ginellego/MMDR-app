@@ -1,15 +1,13 @@
-import { Text, View } from "react-native";
+import { Redirect } from 'expo-router';
+import { Platform } from 'react-native';
 
 export default function Index() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen. Yay lol yay</Text>
-    </View>
-  );
+  console.log('PLATFORM:', Platform.OS);
+
+  if (Platform.OS === 'web') {
+    return <Redirect href="/(web)" />;
+  }
+
+  return <Redirect href="/(drawer)/(tabs)/home" />;
 }
+
